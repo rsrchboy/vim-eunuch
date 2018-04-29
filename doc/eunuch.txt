@@ -44,7 +44,8 @@ COMMANDS                                        *eunuch-commands*
                         containing directory.
 
                                                 *eunuch-:Chmod*
-:Chmod {mode}           Change the permissions of the current file.
+:Chmod[!] {mode}        Change the permissions of the current file; a '!' will
+                        use sudo to invoke chmod.
 
                                                 *eunuch-:Mkdir*
 :Mkdir {dir}            Create directory {dir} with |mkdir()|.

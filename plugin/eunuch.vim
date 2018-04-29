@@ -84,8 +84,8 @@ endfunction
 command! -bar -nargs=1 -bang -complete=custom,s:Rename_complete Rename
       \ Move<bang> %:h/<args>
 
-command! -bar -nargs=1 Chmod :
-      \ echoerr get(split(system('chmod '.<q-args>.' '.shellescape(expand('%'))), "\n"), 0, '') |
+command! -bar -bang -nargs=1 Chmod :
+      \ echoerr get(split(system((<bang>0 ? 'sudo ' : '').'chmod '.<q-args>.' '.shellescape(expand('%'))), "\n"), 0, '') |
 
 command! -bar -bang -nargs=? -complete=dir Mkdir
       \ call mkdir(empty(<q-args>) ? expand('%:h') : <q-args>, <bang>0 ? 'p' : '') |
